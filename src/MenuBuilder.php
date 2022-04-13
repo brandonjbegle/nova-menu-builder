@@ -2,6 +2,7 @@
 
 namespace OptimistDigital\MenuBuilder;
 
+use Laravel\Nova\Menu\MenuSection;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 use Illuminate\Support\Str;
@@ -159,5 +160,11 @@ class MenuBuilder extends Tool
     public static function showDuplicate()
     {
         return config("nova-menu.show_duplicate", true);
+    }
+
+    public function menu(){
+        return MenuSection::make('Menu Builder')
+            ->path('/menus')
+            ->icon('server');
     }
 }
