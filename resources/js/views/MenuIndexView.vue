@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import { mapProps } from 'laravel-nova'
+// import { mapProps } from 'laravel-nova'
 
 export default {
-  props: mapProps(['resourceName']),
+  // props: mapProps(['resourceName']),
   data: () => ({
     resourceName: Nova.config.menuBuilderUriKey,
   }),
