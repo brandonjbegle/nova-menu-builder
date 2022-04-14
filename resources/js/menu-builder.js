@@ -15,5 +15,8 @@ Nova.booting((app, store) => {
 })
 
 Nova.booted((app) => {
+  console.log('app components below');
+  console.log(app.components);
+  console.log('app components above');
   Nova.inertia('MenuBuilder', MenuIndexView);
 })
