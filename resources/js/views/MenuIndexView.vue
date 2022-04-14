@@ -1,5 +1,5 @@
 <template>
-<!--  <ResourceIndex :resourceName="resourceName" />-->
+  <!--  <ResourceIndex :resourceName="resourceName" />-->
   <div>
     Testing View
   </div>
@@ -11,9 +11,10 @@
 export default {
   // props: mapProps(['resourceName']),
   data: () => ({
-    resourceName: Nova.config.menuBuilderUriKey,
+    resourceName: Nova.appConfig.menuBuilderUriKey,
   }),
-  mounted(){
+  mounted() {
+    console.log(Nova);
     console.log('Resource Name: ' + this.resourceName);
   }
 };
