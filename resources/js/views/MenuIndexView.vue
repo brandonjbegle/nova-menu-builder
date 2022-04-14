@@ -1,18 +1,14 @@
 <template>
-  <ResourceIndex :resourceName="resourceName"/>
+  <ResourceIndex :resourceName="resourceName"
+                 :shouldOverrideMeta="true"
+                 :shouldEnableShortcut="true"></ResourceIndex>
 </template>
 
 <script>
-// import { mapProps } from 'laravel-nova'
 
 export default {
-  // props: mapProps(['resourceName']),
   data: () => ({
     resourceName: Nova.appConfig.menuBuilderUriKey,
-  }),
-  mounted() {
-    console.log(Nova);
-    console.log('Resource Name: ' + this.resourceName);
-  }
+  })
 };
 </script>

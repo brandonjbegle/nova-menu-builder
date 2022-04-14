@@ -3,6 +3,7 @@ let path = require('path')
 
 mix.alias({
   'laravel-nova': path.join(__dirname, 'vendor/laravel/nova/resources/js/mixins/packages.js'),
+  'laravel-nova-views': path.join(__dirname, 'vendor/laravel/nova/resources/js/views'),
 })
 
 mix
