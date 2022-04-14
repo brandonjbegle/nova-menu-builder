@@ -62,6 +62,9 @@ class MenuBuilderServiceProvider extends ServiceProvider
     {
         if ($this->app->routesAreCached()) return;
 
+        Nova::router(['nova', Authorize::class], 'menus')
+            ->group(__DIR__.'/../routes/inertia.php');
+
         Route::middleware(['nova', Authorize::class])
             ->namespace('OptimistDigital\MenuBuilder\Http\Controllers')
             ->prefix('nova-vendor/nova-menu')

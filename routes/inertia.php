@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/menus', function (Request $request) {
+Route::get('/', function (Request $request) {
     return inertia('MenuBuilder');
 });
