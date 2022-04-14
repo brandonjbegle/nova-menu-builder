@@ -12,10 +12,10 @@
     />
 
     <div class="py-6" v-if="loadingMenuItems">
-      <loader class="text-60" />
+      <loader class="text-60"/>
     </div>
 
-    <no-menu-items-placeholder @onAddClick="openAddModal" v-if="!loadingMenuItems && !menuItems.length" />
+    <no-menu-items-placeholder @onAddClick="openAddModal" v-if="!loadingMenuItems && !menuItems.length"/>
 
     <menu-builder
       v-if="!loadingMenuItems && menuItems.length"
@@ -27,14 +27,13 @@
       :max-depth="field.maxDepth"
       v-model="menuItems"
     />
-<!--Todo: Unset this from true to original-->
     <update-menu-item-modal
       :linkType="linkType"
       :menuItemTypes="menuItemTypes"
       :newItem="newItem"
       :resourceId="resourceId"
       :resourceName="resourceName"
-      :showModal="true"
+      :showModal="showAddModal"
       :update="update"
       :errors="errors"
       :isMenuItemUpdating="isMenuItemUpdating"
@@ -56,7 +55,7 @@
 
 <script>
 import api from '../api';
-import { FormField } from 'laravel-nova';
+import {FormField} from 'laravel-nova';
 import MenuBuilderHeader from './core/MenuBuilderHeader';
 import UpdateMenuItemModal from './modals/UpdateMenuItemModal';
 import DeleteMenuItemModal from './modals/DeleteMenuItemModal';
@@ -127,6 +126,7 @@ export default {
     },
 
     openAddModal() {
+      console.log('open add modal');
       this.update = false;
       this.showAddModal = true;
     },
@@ -166,7 +166,7 @@ export default {
       try {
         await api.destroy(this.itemToDelete.id);
         await this.refreshData();
-        this.$toasted.show(this.__('novaMenuBuilder.toastDeleteSucces'), { type: 'success' });
+        this.$toasted.show(this.__('novaMenuBuilder.toastDeleteSucces'), {type: 'success'});
         this.itemToDelete = null;
         this.showDeleteModal = false;
       } catch (e) {
@@ -195,7 +195,7 @@ export default {
         this.refreshData();
         this.showAddModal = false;
         this.resetNewItem();
-        this.$toasted.show(this.__('novaMenuBuilder.toastCreateSuccess'), { type: 'success' });
+        this.$toasted.show(this.__('novaMenuBuilder.toastCreateSuccess'), {type: 'success'});
       } catch (e) {
         console.error(e);
         this.handleErrors(e);
@@ -209,7 +209,7 @@ export default {
         await api.update(this.newItem.id, this.newItemData);
         this.isMenuItemUpdating = false;
         this.showAddModal = false;
-        this.$toasted.show(this.__('novaMenuBuilder.toastUpdateSuccess'), { type: 'success' });
+        this.$toasted.show(this.__('novaMenuBuilder.toastUpdateSuccess'), {type: 'success'});
         this.resetNewItem();
         await this.refreshData();
       } catch (e) {
@@ -221,9 +221,9 @@ export default {
     async updateMenu() {
       try {
         await api.saveItems(this.resourceId, this.menuItems);
-        this.$toasted.show(this.__('novaMenuBuilder.toastReorderSuccess'), { type: 'success' });
+        this.$toasted.show(this.__('novaMenuBuilder.toastReorderSuccess'), {type: 'success'});
       } catch (e) {
-        this.$toasted.show(this.__('novaMenuBuilder.serverError'), { type: 'error' });
+        this.$toasted.show(this.__('novaMenuBuilder.serverError'), {type: 'error'});
       }
     },
 
@@ -231,7 +231,7 @@ export default {
       let errors = res.response && res.response.data && res.response.data.errors;
       if (errors) {
         this.errors = errors;
-        Object.values(errors).map(error => this.$toasted.show(error, { type: 'error' }));
+        Object.values(errors).map(error => this.$toasted.show(error, {type: 'error'}));
       }
     },
 
@@ -240,7 +240,7 @@ export default {
         await api.duplicate(item.id);
         await this.refreshData();
         this.resetNewItem();
-        this.$toasted.show(this.__('novaMenuBuilder.toastDuplicateSuccess'), { type: 'success' });
+        this.$toasted.show(this.__('novaMenuBuilder.toastDuplicateSuccess'), {type: 'success'});
       } catch (e) {
         this.handleErrors(e);
       }
