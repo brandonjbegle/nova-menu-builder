@@ -1,5 +1,5 @@
 <template>
-  <modal align="flex justify-end" :show="showModal" class="add-new-menu-item-modal">
+  <local-modal align="flex justify-end" :show="showModal" class="add-new-menu-item-modal">
     <div slot="container">
       <div class="flex flex-wrap justify-between mb-6">
         <h2 class="text-90 font-normal text-xl">
@@ -156,11 +156,11 @@
         </progress-button>
       </div>
     </div>
-  </modal>
+  </local-modal>
 </template>
 
 <script>
-import Modal from './Modal';
+import LocalModal from './Modal';
 import Multiselect from 'vue-multiselect';
 import { HandlesValidationErrors } from 'laravel-nova';
 import { Errors } from 'form-backend-validation';
@@ -177,7 +177,7 @@ export default {
     'resourceId',
     'isMenuItemUpdating',
   ],
-  components: { Modal, Multiselect },
+  components: { LocalModal, Multiselect },
   data: () => ({
     toggleLabels: false,
   }),
