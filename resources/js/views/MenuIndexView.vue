@@ -1,8 +1,5 @@
 <template>
-  <!--  <ResourceIndex :resourceName="resourceName" />-->
-  <div>
-    Testing View
-  </div>
+  <ResourceIndex :resourceName="resourceName"/>
 </template>
 
 <script>
