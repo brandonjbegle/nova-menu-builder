@@ -1,19 +1,18 @@
 <template>
   <transition name="fade">
-    {{ show ? 'Showing' : 'Not Showing' }}
-    <!--    <modal v-if="show">-->
-    <!--      <div class="bg-white rounded-lg shadow-lg" :style="style">-->
-    <!--        <div class="p-8">-->
-    <!--          <slot name="container" />-->
-    <!--        </div>-->
+    <modal :show="show">
+      <div class="bg-white rounded-lg shadow-lg" :style="style">
+        <div class="p-8">
+          <slot name="container"/>
+        </div>
 
-    <!--        <div class="bg-30 px-6 py-3 flex overflow-hidden rounded-b-lg">-->
-    <!--          <div class="w-full" :class="align">-->
-    <!--            <slot name="buttons" />-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </modal>-->
+        <div class="bg-30 px-6 py-3 flex overflow-hidden rounded-b-lg">
+          <div class="w-full" :class="align">
+            <slot name="buttons"/>
+          </div>
+        </div>
+      </div>
+    </modal>
   </transition>
 </template>
 
