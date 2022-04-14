@@ -4,6 +4,7 @@ import MenuBuilder from './components/MenuBuilder';
 import MenuBuilderField from './components/MenuBuilderField';
 
 Nova.booting((app, store) => {
+  console.log(app.components);
   app.use(ToggleButton);
   app.component('menu-builder', MenuBuilder);
   app.component('form-menu-builder-field', MenuBuilderField);
