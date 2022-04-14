@@ -27,14 +27,14 @@
       :max-depth="field.maxDepth"
       v-model="menuItems"
     />
-
+<!--Todo: Unset this from true to original-->
     <update-menu-item-modal
       :linkType="linkType"
       :menuItemTypes="menuItemTypes"
       :newItem="newItem"
       :resourceId="resourceId"
       :resourceName="resourceName"
-      :showModal="showAddModal"
+      :showModal="true"
       :update="update"
       :errors="errors"
       :isMenuItemUpdating="isMenuItemUpdating"
