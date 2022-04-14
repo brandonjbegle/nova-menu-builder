@@ -5,7 +5,7 @@ import MenuBuilderField from './components/MenuBuilderField';
 
 Nova.booting((app, store) => {
   console.log('app components below');
-  console.log(app.components);
+  console.log(app);
   console.log('app components above');
   app.use(ToggleButton);
   app.component('menu-builder', MenuBuilder);
@@ -16,7 +16,7 @@ Nova.booting((app, store) => {
 
 Nova.booted((app) => {
   console.log('app components below');
-  console.log(app.components);
+  console.log(app);
   console.log('app components above');
   Nova.inertia('MenuBuilder', MenuIndexView);
 })
