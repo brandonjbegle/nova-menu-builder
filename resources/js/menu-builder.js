@@ -21,5 +21,9 @@ import MenuBuilderField from './components/MenuBuilderField';
 // });
 
 Nova.booting((app, store) => {
-
+  app.use(ToggleButton);
+  app.component('menu-builder', MenuBuilder);
+  app.component('form-menu-builder-field', MenuBuilderField);
+  app.component('detail-menu-builder-field', MenuBuilderField);
+  Nova.inertia('MenuBuilder', MenuIndexView);
 })
