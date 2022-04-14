@@ -1,5 +1,8 @@
 <template>
-  <ResourceIndex :resourceName="resourceName" />
+<!--  <ResourceIndex :resourceName="resourceName" />-->
+  <div>
+    Testing View
+  </div>
 </template>
 
 <script>
@@ -10,5 +13,8 @@ export default {
   data: () => ({
     resourceName: Nova.config.menuBuilderUriKey,
   }),
+  mounted(){
+    console.log('Resource Name: ' + this.resourceName);
+  }
 };
 </script>
